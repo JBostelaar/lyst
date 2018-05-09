@@ -30,7 +30,12 @@ const StyledInput = styled.input`
 `;
 
 const Input = ({ input, placeholder, className }) => (
-  <StyledInput {...input} placeholder={placeholder} className={className} />
+  <StyledInput
+    {...input}
+    placeholder={placeholder}
+    className={className}
+    autoComplete="off"
+  />
 );
 
 Input.propTypes = {

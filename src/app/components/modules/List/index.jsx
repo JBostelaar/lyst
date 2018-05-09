@@ -1,17 +1,35 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PT from 'prop-types';
 import { connect } from 'react-redux';
 
-import Header from 'modules/Header';
+import { listToggle } from 'ducks/list';
 
-const List = ({ list }) => (
-  <div>
+import Header from 'modules/Header';
+import ListItem from './components/ListItem';
+import { ListContainer } from './styled';
+
+const List = ({ list, toggle }) => (
+  <Fragment>
     <Header />
-  </div>
+    <ListContainer>
+      {list.map((item, index) => (
+        <ListItem
+          key={item.id}
+          item={item}
+          onClick={toggle}
+          tabIndex={index + 1}
+        />
+      ))}
+    </ListContainer>
+  </Fragment>
 );
 
 List.propTypes = {
   list: PT.array,
+  toggle: PT.func,
 };
 
-export default connect(state => ({ list: state.list.items }))(List);
+export default connect(
+  state => ({ list: state.list.items }),
+  { toggle: listToggle },
+)(List);
