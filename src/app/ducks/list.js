@@ -20,7 +20,7 @@ export default (state = initialState, { type, payload }) => {
     case LIST_ADD_SUCCESS:
       return {
         ...state,
-        items: [...state.items, payload],
+        items: [payload, ...state.items],
         loading: false,
       };
     case LIST_ADD_FAILED:
