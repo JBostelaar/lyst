@@ -15,8 +15,9 @@ const ListItemContainer = styled.div`
   padding: 0 20px;
   color: ${props => props.theme.sherpaBlue};
   cursor: pointer;
+  outline: none;
 
-  &:hover {
+  &:hover, &:focus {
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     background: #fcfcfb;
   }
@@ -26,8 +27,12 @@ const ListItemContent = styled.span`
   margin-left: 20px;
 `;
 
-const ListItem = ({ item, onClick }) => (
-  <ListItemContainer>
+const ListItem = ({ item, onClick, tabIndex }) => (
+  <ListItemContainer
+    tabIndex={tabIndex}
+    role="button"
+    onKeyPress={(e) => { if (e.key === 'Enter') onClick(item.id); }}
+  >
     <InputCheck active={item.done} onClick={() => onClick(item.id)} />
     <ListItemContent>{item.label}</ListItemContent>
   </ListItemContainer>
@@ -40,6 +45,7 @@ ListItem.propTypes = {
     id: PT.string,
   }),
   onClick: PT.func,
+  tabIndex: PT.number,
 };
 
 export default ListItem;

@@ -35,6 +35,7 @@ const Input = ({ input, placeholder, className }) => (
     placeholder={placeholder}
     className={className}
     autoComplete="off"
+    tabIndex="1"
   />
 );
 

@@ -17,7 +17,7 @@ const List = ({ list, toggle }) => (
           key={item.id}
           item={item}
           onClick={toggle}
-          tabIndex={index + 1}
+          tabIndex={index + 2}
         />
       ))}
     </ListContainer>
