@@ -1,10 +1,17 @@
 import React from 'react';
-import { Header } from 'common';
+import PT from 'prop-types';
+import { connect } from 'react-redux';
 
-const List = () => (
+import Header from 'modules/Header';
+
+const List = ({ list }) => (
   <div>
     <Header />
   </div>
 );
 
-export default List;
+List.propTypes = {
+  list: PT.array,
+};
+
+export default connect(state => ({ list: state.list.items }))(List);
