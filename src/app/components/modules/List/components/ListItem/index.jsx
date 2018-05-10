@@ -1,6 +1,6 @@
 import React from 'react';
 import PT from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { InputCheck } from 'common';
 
@@ -21,6 +21,10 @@ const ListItemContainer = styled.div`
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     background: #fcfcfb;
   }
+
+  ${props => props.active && css`
+    color: #ABB7B7;
+  `}
 `;
 
 const ListItemContent = styled.span`
@@ -30,6 +34,7 @@ const ListItemContent = styled.span`
 const ListItem = ({ item, onClick, tabIndex }) => (
   <ListItemContainer
     tabIndex={tabIndex}
+    active={item.done}
     role="button"
     onKeyPress={(e) => { if (e.key === 'Enter') onClick(item.id); }}
   >
