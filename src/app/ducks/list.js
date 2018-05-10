@@ -10,7 +10,7 @@ const LIST_TOGGLE_SUCCESS = 'LIST_TOGGLE_SUCCESS';
 const LIST_TOGGLE_FAILED = 'LIST_TOGGLE_FAILED';
 
 const initialState = {
-  items: __CLIENT__ && (JSON.parse(localStorage.getItem('listItems')) || []),
+  items: __CLIENT__ ? (JSON.parse(localStorage.getItem('listItems')) || []) : [],
   error: { message: '' },
   loading: false,
 };
