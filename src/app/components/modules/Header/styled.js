@@ -21,4 +21,9 @@ export const Logo = styled.div`
   left: 50px;
   top: 40px;
   font-weight: 400;
+
+  svg {
+    width: 45px;
+    height: 45px;
+  }
 `;

@@ -3,6 +3,7 @@ import PT from 'prop-types';
 import { connect } from 'react-redux';
 import { Form, Field } from 'react-final-form';
 
+import LogoIcon from 'vectors/logo.svg';
 import { listAdd } from 'ducks/list';
 
 import { Input } from 'common';
@@ -24,7 +25,7 @@ class Header extends React.Component {
 
     return (
       <HeaderContainer>
-        <Logo>Lyst</Logo>
+        <Logo><LogoIcon /></Logo>
         <Form
           onSubmit={add}
           render={({ handleSubmit, form }) => (
@@ -32,7 +33,7 @@ class Header extends React.Component {
               <Field
                 name="todo"
                 component={Input}
-                placeholder="New todo"
+                placeholder="Nieuwe taak toevoegen"
                 className="add-todo"
               />
             </form>
