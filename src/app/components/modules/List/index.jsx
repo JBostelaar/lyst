@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import { listToggle } from 'ducks/list';
 
+import { Title } from 'common';
 import Header from 'modules/Header';
 import ListItem from './components/ListItem';
 import { ListContainer } from './styled';
@@ -12,6 +13,7 @@ const List = ({ list, toggle }) => (
   <Fragment>
     <Header />
     <ListContainer>
+      <Title>Mijn taken</Title>
       {list.map((item, index) => (
         <ListItem
           key={item.id}
